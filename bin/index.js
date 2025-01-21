@@ -251,11 +251,7 @@ payload: {
             `);
         }
     });
-
-    const importStatements = Array.from(imports)
-        .map(importItem => `import { ${importItem} } from "../../Models/Model";`)
-        .join('\n');
-
+    const importStatements = `import type { ${Array.from(imports).join(', ')} } from "../../Models/Model";`;
     return `// Generated Service for ${tag} \n\n${importStatements}\n\n` + actions.join('\n');
 }
 
@@ -388,7 +384,7 @@ async function generateApiServices({ openApiSource, outputDir }) {
 
 
 
-    const modelsFolder = path.join(outputDir, 'models');
+    const modelsFolder = path.join(outputDir, 'Models');
     if (!fs.existsSync(modelsFolder)) {
         fs.mkdirSync(modelsFolder);
     }
@@ -751,6 +747,9 @@ function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 // end of enum generation and dtogenration code
+
+
+
 
 function generateCombinedReducers(folderPaths, keyword,outputDir) {
     const imports = [];
