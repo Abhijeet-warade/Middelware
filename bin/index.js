@@ -550,6 +550,7 @@ const deduplicateEnums = (input) => {
 
 };
 
+
 function generateDTO(jsonData, dtopath) {
     const dtoPaths = jsonData.paths;
     const schemas = jsonData.components.schemas;
