@@ -575,7 +575,7 @@ function generateDTO(jsonData, dtopath) {
                 enums += enumCode;
             }
 
-            classDef += `    ${removeSpecialCharacters(propName)}!: ${propType};\n`;
+            classDef += `    ${propName}!: ${propType};\n`;
         }
 
         dtoClasses += `${classDef}}\n\n`;
